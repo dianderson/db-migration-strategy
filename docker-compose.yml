@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15.3-alpine
+    container_name: postgres-sinqia
+    environment:
+      POSTGRES_USER: sinqia
+      POSTGRES_PASSWORD: sinqia@123
+      POSTGRES_DB: sinqiadb
+    volumes:
+      - ./backup/postgres/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - local
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver-sinqia
+    environment:
+      MSSQL_PID: Developer
+      SA_PASSWORD: sinqia@123
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge

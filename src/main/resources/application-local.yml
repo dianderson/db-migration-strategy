@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sinqiadb
+    username: sinqia
+    password: sinqia@123
+
+#    postgres:
+#      url: jdbc:postgresql://localhost:5432/sinqiadb
+#      username: sinqia
+#      password: sinqia@123
+#      driverClassName: org.postgresql.Driver
+#      hikari:
+#        connectionTimeout: 30000
+#        idleTimeout: 600000
+#        maxLifetime: 1800000
+#    sqlserver:
+#      url: jdbc:sqlserver://localhost:1433;trustServerCertificate=true;databaseName=master
+#      username: sa
+#      password: sinqia@123
+#      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
