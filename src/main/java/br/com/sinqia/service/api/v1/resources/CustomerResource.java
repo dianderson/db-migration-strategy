@@ -2,9 +2,9 @@ package br.com.sinqia.service.api.v1.resources;
 
 import br.com.sinqia.service.api.v1.requests.CreateCustomerRequest;
 import br.com.sinqia.service.api.v1.requests.UpdateCustomerRequest;
-import br.com.sinqia.service.api.v1.response.CustomerResponse;
-import br.com.sinqia.service.db.resources.CreateCustomer;
-import br.com.sinqia.service.db.resources.UpdateCustomer;
+import br.com.sinqia.service.api.v1.responses.CustomerResponse;
+import br.com.sinqia.service.domains.customers.resources.CreateNewCustomer;
+import br.com.sinqia.service.domains.customers.resources.AlterCustomer;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/v1/customers")
 public class CustomerResource {
-    private final CreateCustomer createCustomer;
-    private final UpdateCustomer updateCustomer;
+    private final CreateNewCustomer createCustomer;
+    private final AlterCustomer updateCustomer;
 
     @PostMapping
     CustomerResponse create(@Valid @RequestBody CreateCustomerRequest request) {

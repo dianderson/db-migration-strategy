@@ -1,6 +1,6 @@
 package br.com.sinqia.service.api.v1.requests;
 
-import br.com.sinqia.service.db.input.CreateCustomerDbInput;
+import br.com.sinqia.service.domains.customers.inputs.CreateCustomerInput;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -13,11 +13,7 @@ public class CreateCustomerRequest {
     @NotBlank
     private String document;
 
-    public CreateCustomerDbInput toInput() {
-        CreateCustomerDbInput input = new CreateCustomerDbInput();
-        input.setName(name);
-        input.setLastName(lastName);
-        input.setDocument(document);
-        return input;
+    public CreateCustomerInput toInput() {
+        return new CreateCustomerInput(name, lastName, document);
     }
 }

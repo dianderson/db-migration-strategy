@@ -1,6 +1,6 @@
 package br.com.sinqia.service.api.v1.requests;
 
-import br.com.sinqia.service.db.input.UpdateCustomerDbInput;
+import br.com.sinqia.service.domains.customers.inputs.UpdateCustomerInput;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -13,8 +13,8 @@ public class UpdateCustomerRequest {
     @NotBlank
     private String document;
 
-    public UpdateCustomerDbInput toInput(String code) {
-        UpdateCustomerDbInput input = new UpdateCustomerDbInput();
+    public UpdateCustomerInput toInput(String code) {
+        UpdateCustomerInput input = new UpdateCustomerInput();
         input.setCode(code);
         input.setName(name);
         input.setLastName(lastName);
